@@ -95,10 +95,11 @@ def main():
         if not tate:  # 縦方向に範囲外だったら
             vy *= -1
         bd_img=bd_imgs[min(tmr//500,9)]
+        bd_rct.width, bd_rct.height= bd_img.get_rect().width, bd_img.get_rect().height
         screen.blit(bd_img,bd_rct)
         pg.display.update()
         tmr += 1
-        clock.tick(50)
+        clock.tick(100)
 
 
 if __name__ == "__main__":
