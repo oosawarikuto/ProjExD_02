@@ -54,6 +54,14 @@ def main():
     # 爆弾Rectの中心座標を乱数する
     bd_rct.center = x, y 
     vx, vy = +5, +5  # 練習２
+    
+    bd_imgs=[] #追加課題2
+    for r in range(1,11):
+        bd_img=pg.Surface((20*r,20*r))
+        bd_img.set_colorkey((0, 0, 0))
+        pg.draw.circle(bd_img,(255,0,0),(10*r,10*r),10*r)
+        bd_imgs.append(bd_img)
+    
 
     clock = pg.time.Clock()
 
@@ -86,6 +94,7 @@ def main():
             vx *= -1
         if not tate:  # 縦方向に範囲外だったら
             vy *= -1
+        bd_img=bd_imgs[min(tmr//500,9)]
         screen.blit(bd_img,bd_rct)
         pg.display.update()
         tmr += 1
