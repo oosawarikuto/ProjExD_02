@@ -37,7 +37,8 @@ def main():
     bg_img = pg.image.load("ex02/fig/pg_bg.jpg")
     kk_img = pg.image.load("ex02/fig/3.png")
     kk_img2=pg.transform.flip(kk_img,True,False)
-    kk_jisho={(-5,0):pg.transform.rotozoom(kk_img, 0, 2.0),(-5,-5):pg.transform.rotozoom(kk_img, -45, 2.0),(0,-5):pg.transform.rotozoom(kk_img2, 90, 2.0),(5,-5):pg.transform.rotozoom(kk_img2, 45, 2.0),(5,0):pg.transform.rotozoom(kk_img2, 0, 2.0),(5,5):pg.transform.rotozoom(kk_img2, -45, 2.0),(0,5):pg.transform.rotozoom(kk_img2, -90, 2.0),(-5,5):pg.transform.rotozoom(kk_img, -315, 2.0),(0,0):pg.transform.rotozoom(kk_img, 0, 2.0)}
+    kk_jisho={(-5,0):pg.transform.rotozoom(kk_img, 0, 2.0),(-5,-5):pg.transform.rotozoom(kk_img, -45, 2.0),(0,-5):pg.transform.rotozoom(kk_img2, 90, 2.0),(5,-5):pg.transform.rotozoom(kk_img2, 45, 2.0),(5,0):pg.transform.rotozoom(kk_img2, 0, 2.0),
+              (5,5):pg.transform.rotozoom(kk_img2, -45, 2.0),(0,5):pg.transform.rotozoom(kk_img2, -90, 2.0),(-5,5):pg.transform.rotozoom(kk_img, -315, 2.0),(0,0):pg.transform.rotozoom(kk_img, 0, 2.0)}
     kk_img=pg.transform.rotozoom(kk_img, 0, 2.0)
 
     # こうかとんSurface（kk_img）からこうかとんRect（kk_rct）を抽出する
@@ -79,7 +80,7 @@ def main():
                                     
         screen.blit(kk_img, kk_rct)
         print(kk_rct)
-        #bd_rct.move_ip(vx, vy)  # 練習２
+        bd_rct.move_ip(vx, vy)  # 練習２
         yoko, tate = check_bound(bd_rct)
         if not yoko:  # 横方向に画面外だったら
             vx *= -1
