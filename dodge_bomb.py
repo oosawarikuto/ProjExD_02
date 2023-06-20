@@ -11,8 +11,19 @@ delta = {
     pg.K_RIGHT: (+5, 0),
 }
 
-
-
+"""
+def zahyou_check(x,y):
+    z=True
+    if x>WIDTH:
+        z=False
+    elif y>HEIGHT:
+        z=False
+    elif x<0:
+        z=False
+    elif y<0:
+        z=False
+    return z
+"""
 def main():
     pg.display.set_caption("逃げろ！こうかとん")
     screen = pg.display.set_mode((WIDTH, HEIGHT))
@@ -36,6 +47,7 @@ def main():
     clock = pg.time.Clock()
 
     tmr = 0 
+
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: 
@@ -48,12 +60,12 @@ def main():
                 sum_mv[1] += mv[1]
         kk_rct.move_ip(sum_mv)
         screen.blit(bg_img, [0, 0])
-        screen.blit(kk_img, [900, 400])
+        screen.blit(kk_img, kk_rct)
         bd_rct.move_ip(vx, vy)  # 練習２
         screen.blit(bd_img,bd_rct)
         pg.display.update()
         tmr += 1
-        clock.tick(10)
+        clock.tick(50)
 
 
 if __name__ == "__main__":
